@@ -5,6 +5,12 @@ const styles = StyleSheet.create({
       paddingTop: 50,
       justifyContent: 'space-evenly',
     },
+    container_header: {
+      flexDirection: 'column',
+     
+      justifyContent: 'center',
+     alignItems:'center'
+    },
     open_view: {
       alignItems: 'center',
     },
@@ -25,10 +31,6 @@ const styles = StyleSheet.create({
     music_tool: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
-    //   paddingLeft: 30,
-    //   paddingRight: 30,
-      paddingTop: 20,
-    //   paddingBottom: 20,
     },
     music_tool_view: {
       flexDirection: 'row',
