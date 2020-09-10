@@ -1263,6 +1263,14 @@
   dependencies:
     color "^3.1.2"
 
+"@react-navigation/native@^5.7.3":
+  version "5.7.3"
+  resolved "https://registry.npm.taobao.org/@react-navigation/native/download/@react-navigation/native-5.7.3.tgz#3cda5ee7b0fe0d980db6d788419f0af50a64deac"
+  integrity sha1-PNpe57D+DZgNtteIQZ8K9Qpk3qw=
+  dependencies:
+    "@react-navigation/core" "^5.12.3"
+    nanoid "^3.1.12"
+
 "@react-navigation/routers@^5.4.11":
   version "5.4.11"
   resolved "https://registry.npm.taobao.org/@react-navigation/routers/download/@react-navigation/routers-5.4.11.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40react-navigation%2Frouters%2Fdownload%2F%40react-navigation%2Frouters-5.4.11.tgz#75dbec1809e282c3749068845099c5bee2c792f0"
@@ -6202,6 +6210,11 @@ readable-stream@^2.0.1, readable-stream@^2.2.2, readable-stream@~2.3.6:
     safe-buffer "~5.1.1"
     string_decoder "~1.1.1"
     util-deprecate "~1.0.1"
+
+redux-devtools-extension@^2.13.8:
+  version "2.13.8"
+  resolved "https://registry.npm.taobao.org/redux-devtools-extension/download/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"
+  integrity sha1-N7mCaIYm5eSZP/hyIMm7t80tluE=
 
 redux-thunk@^2.3.0:
   version "2.3.0"
