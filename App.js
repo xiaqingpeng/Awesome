@@ -23,7 +23,7 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
+import FontAwesome from 'react-native-vector-icons/AntDesign';
 const App: () => React$Node = () => {
   return (
     <>
@@ -41,6 +41,7 @@ const App: () => React$Node = () => {
           )}
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
+                 <FontAwesome name={'twitter'} size={100}  color={'purple'} /> 
                    <Button type="primary">666</Button> 
             </View>
             <View style={styles.sectionContainer}>
