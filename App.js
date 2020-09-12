@@ -1,4 +1,5 @@
 import React from 'react';
+import { LogBox } from 'react-native'
 import {Provider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import MainNavigation from './Navigation/Nav/index.js';
@@ -64,7 +65,7 @@ function App() {
 }
 
 export default () => {
-  console.disableYellowBox=true;
+  LogBox.ignoreAllLogs();
   return (
     <Provider store={store}>
       <App />

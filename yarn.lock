@@ -5988,6 +5988,13 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.13.1.tgz?cache=0&sync_timestamp=1598612859625&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-is%2Fdownload%2Freact-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=
 
+react-native-action-button@^2.8.5:
+  version "2.8.5"
+  resolved "https://registry.npm.taobao.org/react-native-action-button/download/react-native-action-button-2.8.5.tgz#4152a50323a8a6b3468e6f161f9a9071f2f0739a"
+  integrity sha1-QVKlAyOoprNGjm8WH5qQcfLwc5o=
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-camera@^3.39.0:
   version "3.39.0"
   resolved "https://registry.npm.taobao.org/react-native-camera/download/react-native-camera-3.39.0.tgz#5e60638eb9d45bf36a65adc199e92ff152a55ac3"
