@@ -1,11 +1,9 @@
 import React, {Fragment,useEffect} from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
+import {Text, View, Button, TouchableOpacity} from 'react-native';
 import {Header} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import { useDispatch, useSelector } from 'react-redux'
-import { Button} from '@ant-design/react-native'
-
 function HomeScreen({route}) {
    const navigation = useNavigation();
    const dispatch=useDispatch()
@@ -21,7 +19,7 @@ function HomeScreen({route}) {
   console.log(home)
    const handleDetail=()=>{
      return <TouchableOpacity onPress={()=>{
-      navigation.openDrawer();
+      navigation.navigate('Drawer');
      }}>
           <EvilIcons name={'navicon'} size={30} color={'white'} />
      </TouchableOpacity>
@@ -37,14 +35,14 @@ function HomeScreen({route}) {
           }}></Header>
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <Button
-            type='primary'
+            title="首页"
             onPress={() => {
               // dispatch(getUser(123,(res)=>{
               //   console.log(res)
               // }))
-               navigation.openDrawer();
+               navigation.navigate('Drawer');
             }}
-          > 首页</Button>
+          />
         </View>
       </View>
     </Fragment>
