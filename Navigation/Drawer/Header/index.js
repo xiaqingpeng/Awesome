@@ -1,17 +1,18 @@
 import React, {Fragment} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text,Pressable} from 'react-native';
 import styles from './indexStyle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {Grid} from '@ant-design/react-native';
+import {NavigationHelpersContext, useNavigation} from '@react-navigation/native';
 const dataSource = [
   {
     icon: (
       <Ionicons
         name="scan-outline"
-        size={40}
+        size={30}
         color={'rgb(3,127,254)'}></Ionicons>
     ),
     text: '扫一扫',
@@ -20,14 +21,14 @@ const dataSource = [
     icon: (
       <FontAwesome
         name="qrcode"
-        size={40}
+        size={30}
         color={'rgb(3,127,254)'}></FontAwesome>
     ),
     text: '我的二维码',
   },
   {
     icon: (
-      <AntDesign name="user" size={40} color={'rgb(3,127,254)'}></AntDesign>
+      <AntDesign name="user" size={30} color={'rgb(3,127,254)'}></AntDesign>
     ),
     text: '我的好友',
   },
@@ -35,14 +36,15 @@ const dataSource = [
     icon: (
       <FontAwesome5
         name="car"
-        size={40}
+        size={30}
         color={'rgb(3,127,254)'}></FontAwesome5>
     ),
     text: '驾驶模式',
   },
 ];
-class DrawerHeader extends React.Component {
-  render() {
+
+  const DrawerHeader =()=>{
+    const navigation = useNavigation();
     return (
       <Fragment>
 
@@ -60,12 +62,18 @@ class DrawerHeader extends React.Component {
             console.log(data);
             return (
               <View style={styles.container_header}>
+                <Pressable onPress={()=>{
+                  console.log(66)
+                 
+                }}>
                 <View
                   style={{
                     height: 40,
                     width: 40,
                     justifyContent: 'center',
                     alignItems: 'center',
+                    backgroundColor:'white',
+                    borderRadius:20
                   }}>
                   {data.icon}
                 </View>
@@ -73,6 +81,7 @@ class DrawerHeader extends React.Component {
                 <Text style={{fontWeight: 'bold', fontSize: 12}}>
                   {data.text}
                 </Text>
+                </Pressable>
               </View>
             );
           }}
@@ -97,6 +106,8 @@ class DrawerHeader extends React.Component {
       </Fragment>
     );
   }
-}
+    
+
+
 
 export default DrawerHeader;

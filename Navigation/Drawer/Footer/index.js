@@ -40,7 +40,7 @@ class DrawerHeader extends React.Component {
         data={dataSource}
         columnNum={3}
         hasLine={false}
-        itemStyle={{backgroundColor:'#ccc',height:50,
+        itemStyle={{backgroundColor:'white',height:50,
         opacity:0.6,
         alignItems:'center',
         justifyContent:'center'

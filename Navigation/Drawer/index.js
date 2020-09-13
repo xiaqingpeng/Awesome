@@ -12,6 +12,7 @@ import TabbarScreen from '../Tabbar/index';
 import Header from './Header';
 import Footer from './Footer';
 import AdviceScreen from '../../view/DrawerLink/advice'
+import QrCodeScreen from '../../view/DrawerQrCode'
 function OtherScreen() {
   const navigation = useNavigation()
 
@@ -34,7 +35,7 @@ const Stack=createStackNavigator()
 function CustomDrawerContent(props) {
   console.log(props);
   return (
-    <Fragment>
+    <View style={{flex:1,backgroundColor:"rgba(50,50,50,0.1)"}}>
       <Header></Header>
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
@@ -44,7 +45,7 @@ function CustomDrawerContent(props) {
         />
       </DrawerContentScrollView>
       <Footer></Footer>
-    </Fragment>
+    </View>
   );
 }
 
@@ -53,6 +54,12 @@ const DrawerStack=()=> {
   
   return (
     <Drawer.Navigator
+      drawerContentOptions={{
+        activeTintColor: '#e91e63',
+        activeTintColor: 'rgb(3,127,254)',
+        itemStyle: { marginVertical: 30 },
+       
+      }}
       headerMode="none"
       drawerContent={(props) => (
         <CustomDrawerContent {...props}></CustomDrawerContent>
@@ -87,6 +94,7 @@ const Root= () => (
         headerShown:false
       }}
     />
+   
     
   </Stack.Navigator>
 );

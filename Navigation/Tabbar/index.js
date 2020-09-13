@@ -40,7 +40,6 @@ const TabbarNavigation = () => {
       tabBarOptions={tabBarOptions}
       initialRouteName="Home"
       tabBarOptions={({navigation}) => {
-        debugger;
         console.log(navigation);
         return {
           tabBarVisible: navigation.state.index === 0,
