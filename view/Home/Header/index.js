@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {View, Text,Pressable} from 'react-native';
+import {View, Text,Pressable,TouchableOpacity} from 'react-native';
 import styles from './indexStyle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -58,12 +58,17 @@ const dataSource = [
             marginBottom:30
 
           }}
-          renderItem={(data) => {
+          renderItem={(data,index) => {
             console.log(data);
             return (
+              
               <View style={styles.container_header}>
                 <Pressable onPress={()=>{
-                  console.log(66)
+                 if(index===0){
+                  navigation.navigate('DrawerSceen',{name:data.text})
+                }else if(index===1){
+                  navigation.navigate('DrawerQrCode' ,{name:data.text})
+                }
                  
                 }}>
                 <View

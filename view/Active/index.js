@@ -1,10 +1,15 @@
-import React, {Fragment} from 'react';
-import {Text, View, Button, Dimensions} from 'react-native';
+import React, {Fragment, useEffect} from 'react';
+import {Text, View, Button, TouchableOpacity, StyleSheet} from 'react-native';
 import {Header} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
-import {ScreenWidth, ScreenHeight} from '../../common/tool';
-function HomeScreen({route}) {
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {useDispatch, useSelector} from 'react-redux';
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/Ionicons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+function ActiveScreen({route}) {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   return (
     <Fragment>
       <View style={{flex: 1, alignItems: 'center'}}>
@@ -13,18 +18,32 @@ function HomeScreen({route}) {
             text: route.name,
             style: {color: '#fff', fontSize: 20},
           }}></Header>
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-          <Button
-            title="活动"
-            onPress={() => {
-              navigation.openDrawer();
-            }}
-          />
-         
-        </View>
+        <ActionButton
+          buttonColor="rgba(3,127,254,1)"
+          onPress={() => {
+            console.log('点赞');
+          }}
+          renderIcon={() => (
+            <AntDesign name="like2" color="white" size={25}></AntDesign>
+          )}></ActionButton>
+        <ActionButton
+          buttonColor="red"
+          offsetY={110}
+          onPress={() => {
+            console.log('收藏');
+          }}></ActionButton>
+        <ActionButton
+          buttonColor="purple"
+          offsetY={190}
+          onPress={() => {
+            console.log('分享');
+          }}
+          renderIcon={() => (
+            <AntDesign name="sharealt" color="white" size={25}></AntDesign>
+          )}></ActionButton>
       </View>
     </Fragment>
   );
 }
-
-export default HomeScreen;
+const styles = StyleSheet.create({});
+export default ActiveScreen;

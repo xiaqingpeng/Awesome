@@ -7,19 +7,16 @@ import {useDispatch, useSelector} from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 function AdviceScreen({route}) {
+  console.log(route)
+  
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  useEffect(() => {
-    navigation.openDrawer();
-    return () => {
-      navigation.closeDrawer();
-    };
-  }, []);
+  
   const handleDetail = () => {
     return (
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('Tabbar');
+         navigation.goBack()
         }}>
         <Ionicons name={'arrow-back'} size={30} color={'white'} />
       </TouchableOpacity>
@@ -31,7 +28,7 @@ function AdviceScreen({route}) {
         <Header
           leftComponent={handleDetail}
           centerComponent={{
-            text: route.name,
+            text: route.params.name,
             style: {color: '#fff', fontSize: 20},
           }}></Header>
 
