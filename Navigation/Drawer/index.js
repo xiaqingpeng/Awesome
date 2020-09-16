@@ -11,8 +11,8 @@ import {useNavigation} from '@react-navigation/native';
 import TabbarScreen from '../Tabbar/index';
 import Header from './Header';
 import Footer from './Footer';
-import AdviceScreen from '../../view/DrawerLink/advice'
-import QrCodeScreen from '../../view/DrawerQrCode'
+import AdviceScreen from '../../view/Drawer/DrawerLink/advice'
+import QrCodeScreen from '../../view/Drawer/DrawerQrCode'
 function OtherScreen() {
   const navigation = useNavigation()
 

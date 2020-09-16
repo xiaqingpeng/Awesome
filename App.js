@@ -9,8 +9,8 @@ import LoginScreen from './view/User/Login';
 import RegisterScreen from './view/User/Register';
 import {useSelector} from 'react-redux';
 import Tabbar from './Navigation/Tabbar';
-import DrawerSceen from './view/DrawerSceen'
-import DrawerQrCode from './view/DrawerQrCode'
+import DrawerSceen from './view/Drawer/DrawerSceen'
+import DrawerQrCode from './view/Drawer/DrawerQrCode'
 //激活原生端
 import {enableScreens} from 'react-native-screens';
 const enable = enableScreens();
