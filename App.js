@@ -7,6 +7,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import WelcomeScreen from './view/Welcome';
 import LoginScreen from './view/User/Login';
 import RegisterScreen from './view/User/Register';
+import LoginAndRegister from './view/User';
 import {useSelector} from 'react-redux';
 import Tabbar from './Navigation/Tabbar';
 import DrawerSceen from './view/Drawer/DrawerSceen'
@@ -16,10 +17,12 @@ import {enableScreens} from 'react-native-screens';
 const enable = enableScreens();
 const store = configureStore();
 const Stack = createStackNavigator();
+
+
 const RootStack = () => (
-  <Stack.Navigator>
-    <Stack.Screen
-      name="Welcome"
+  <Stack.Navigator headerMode='none'>
+     <Stack.Screen
+      name="WelcomeScreen"
       options={{title: '欢迎'}}
       component={WelcomeScreen}
       options={{
@@ -27,6 +30,32 @@ const RootStack = () => (
       }}
     />
     <Stack.Screen
+      name="Tabbar"
+      component={Tabbar}
+    />
+    <Stack.Screen
+      name="DrawerSceen"
+      component={DrawerSceen}
+      options={{
+        title:'扫一扫'
+      }}
+    />
+    <Stack.Screen
+      name="DrawerQrCode"
+      component={DrawerQrCode}
+      options={{
+        title:'我的二维码'
+      }}
+    />
+    <Stack.Screen
+      name="LoginAndRegister"
+      options={{title: '欢迎'}}
+      component={LoginAndRegister}
+      options={{
+        headerShown: false,
+      }}
+    />
+     <Stack.Screen
       name="Login"
       component={LoginScreen}
       options={{
@@ -46,45 +75,11 @@ const RootStack = () => (
   </Stack.Navigator>
 );
 
-const OtherStack = () => (
-  <Stack.Navigator headerMode='none'>
-    <Stack.Screen
-      name="Tabbar"
-      component={Tabbar}
-      options={{
-        headerShown: false,
-      }}
-    />
-    <Stack.Screen
-      name="DrawerSceen"
-      component={DrawerSceen}
-      options={{
-        title:'扫一扫'
-      }}
-    />
-    <Stack.Screen
-      name="DrawerQrCode"
-      component={DrawerQrCode}
-      options={{
-        title:'我的二维码'
-      }}
-    />
-  </Stack.Navigator>
-);
-
 
 function App() {
-  const {userInfo} = useSelector((state) => {
-    console.log(state);
-    return {
-      userInfo: state.user.userInfo,
-    };
-  });
-  console.log(userInfo);
-  const {token} = userInfo;
   return (
     <NavigationContainer>
-      {token ? <OtherStack /> : <RootStack />}
+       <RootStack /> 
     </NavigationContainer>
   );
 }

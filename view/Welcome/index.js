@@ -1,49 +1,62 @@
-import React from 'react';
-import {View, Text} from 'react-native';
-import {Button} from 'react-native-elements';
+import React, {useState} from 'react';
+import {View, Image} from 'react-native';
+import Swiper from 'react-native-swiper';
 import {useNavigation} from '@react-navigation/native';
-import {ScreenHeight, ScreenWidth} from '../../common/tool';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import {Button} from '@ant-design/react-native';
 import styles from './indexStyle';
-function WelcomeScreen() {
+const dataSource = [
+  require('../../swiper_images/swiper1.png'),
+  require('../../swiper_images/swiper2.png'),
+  require('../../swiper_images/swiper3.png'),
+  require('../../swiper_images/swiper4.png'),
+];
+const SwiperList = () => {
+  const [showsPagination, setShowsPagination] = useState(true);
+  const [index, setIndex] = useState(0);
   const navigation = useNavigation();
-  // const [count, setCount] = useState(10);
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setCount(count - 1);
-  //   }, 1000);
-  //   if (count <= 0) {
-  //     clearTimeout(timer);
-  //     // navigation.navigate('Login');
-  //   }
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, [count]);
-  return (
-    <View style={styles.view_container}>
-      <View style={styles.center_container}>
-        <SimpleLineIcons name="people" size={120} color="#0080fe" />
-        <Text style={styles.icon_text}>欢迎你的到来</Text>
-      </View>
-      <View style={styles.bottom_container}>
-        <Button
-          containerStyle={styles.button_container}
-          title="注册"
-          type="clear"
-          titleStyle={styles.register_title}
-          onPress={() => navigation.navigate('Register')}
-        />
-        <Button
-          containerStyle={{...styles.button_container,backgroundColor:"#0080fe"}}
-          title="登录"
-          type="clear"
-          titleStyle={styles.login_title}
-          onPress={() => navigation.navigate('Login')}
-        />
-      </View>
-    </View>
-  );
-}
+  const handleSwiper = () => {
+    return dataSource.map((item, index) => {
+      return (
+        <View style={styles.view_content} key={index}>
+          <Image style={styles.swiper_images} source={item}></Image>
+          {index == 3 ? (
+            <Button
+              style={styles.text_view}
+              onPress={() => {
+                navigation.navigate('Tabbar');
+              }}
+              style={styles.text_view}>
+              马上体验
+            </Button>
+          ) : null}
+        </View>
+      );
+    });
+  };
 
-export default WelcomeScreen;
+  return (
+    <Swiper
+      style={styles.container}
+      showsButtons={false}
+      // autoplay={true}
+      loop={false}
+      onMomentumScrollEnd={(e, state, context) => {
+        // console.log(e, state.index, context)
+      }}
+      showsPagination={false}
+      dot={<View style={styles.dot} />}
+      activeDot={<View style={styles.activeDot} />}
+      paginationStyle={{
+        bottom: 30,
+        left: 0,
+      }}
+      showsPagination={showsPagination}
+      onIndexChanged={(index) => {
+        setIndex(index);
+        console.log(index);
+      }}>
+      {handleSwiper()}
+    </Swiper>
+  );
+};
+export default SwiperList;

@@ -4,7 +4,6 @@ import {Button, Input} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
 import {ScreenWidth} from '../../../common/tool';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-
 function RegisterScreen() {
   const navigation = useNavigation();
   return (

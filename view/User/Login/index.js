@@ -71,7 +71,7 @@ function LoginScreen() {
               password: pwd,
               token: 'abcd',
             },(res)=>{
-              console.log(res)
+              navigation.navigate('Tabbar')
             }),
           );
         }}

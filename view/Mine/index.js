@@ -11,8 +11,9 @@ import {ListItem, Header} from 'react-native-elements';
 import dataSource from './listData';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import styles from './indexStyle.js';
-
+import {useNavigation} from '@react-navigation/native';
 const MineScreen = ({route}) => {
+  const navigation = useNavigation();
   const handleMineCenter = () => {
     return dataSource.map((item, index) => {
       return (
@@ -42,6 +43,7 @@ const MineScreen = ({route}) => {
   };
   const handleLogin = (props) => {
     console.log(props);
+    navigation.navigate('LoginAndRegister')
   };
   return (
     <View>
