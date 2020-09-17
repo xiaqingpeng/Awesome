@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Image} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {useNavigation} from '@react-navigation/native';
@@ -11,8 +11,6 @@ const dataSource = [
   require('../../swiper_images/swiper4.png'),
 ];
 const SwiperList = () => {
-  const [showsPagination, setShowsPagination] = useState(true);
-  const [index, setIndex] = useState(0);
   const navigation = useNavigation();
   const handleSwiper = () => {
     return dataSource.map((item, index) => {
@@ -40,9 +38,6 @@ const SwiperList = () => {
       showsButtons={false}
       // autoplay={true}
       loop={false}
-      onMomentumScrollEnd={(e, state, context) => {
-        // console.log(e, state.index, context)
-      }}
       showsPagination={false}
       dot={<View style={styles.dot} />}
       activeDot={<View style={styles.activeDot} />}
@@ -50,9 +45,8 @@ const SwiperList = () => {
         bottom: 30,
         left: 0,
       }}
-      showsPagination={showsPagination}
+      showsPagination={true}
       onIndexChanged={(index) => {
-        setIndex(index);
         console.log(index);
       }}>
       {handleSwiper()}

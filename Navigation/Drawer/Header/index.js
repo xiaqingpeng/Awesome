@@ -59,11 +59,11 @@ const dataSource = [
 
           }}
           renderItem={(data) => {
-            console.log(data);
+       
             return (
               <View style={styles.container_header}>
                 <Pressable onPress={()=>{
-                  console.log(66)
+                
                  
                 }}>
                 <View

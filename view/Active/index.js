@@ -7,9 +7,12 @@ import {useDispatch, useSelector} from 'react-redux';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import * as Animatable from 'react-native-animatable';
+
 function ActiveScreen({route}) {
   const navigation = useNavigation();
   const dispatch = useDispatch();
+  let   _ref=null
   return (
     <Fragment>
       <View style={{flex: 1, alignItems: 'center'}}>
@@ -22,9 +25,18 @@ function ActiveScreen({route}) {
           buttonColor="rgba(3,127,254,1)"
           onPress={() => {
             console.log('点赞');
+            console.log(_ref)
+            _ref.bounceOutDown()
           }}
           renderIcon={() => (
-            <AntDesign name="like2" color="white" size={25}></AntDesign>
+            <Animatable.Text 
+            
+            ref={(ref)=>{
+               _ref=ref
+            }}>
+                <AntDesign name="like2" color="white" size={30}></AntDesign>
+              </Animatable.Text>
+           
           )}></ActionButton>
         <ActionButton
           buttonColor="red"

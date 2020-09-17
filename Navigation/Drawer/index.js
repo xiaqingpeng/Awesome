@@ -33,7 +33,6 @@ const Drawer = createDrawerNavigator();
 const Stack=createStackNavigator()
 
 function CustomDrawerContent(props) {
-  console.log(props);
   return (
     <View style={{flex:1,backgroundColor:"rgba(50,50,50,0.1)"}}>
       <Header></Header>
