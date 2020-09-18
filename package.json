@@ -1,5 +1,5 @@
 {
-  "name": "Awesome",
+  "name": "讯美科技",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -41,8 +41,10 @@
     "react-native-tab-view": "^2.15.1",
     "react-native-vector-icons": "^7.0.0",
     "react-redux": "^7.2.1",
+    "reactotron-react-native": "^5.0.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
@@ -53,7 +55,8 @@
     "eslint": "^7.8.1",
     "jest": "^26.4.2",
     "metro-react-native-babel-preset": "^0.63.0",
-    "react-test-renderer": "16.13.1"
+    "react-test-renderer": "16.13.1",
+    "reactotron-redux": "^3.1.3"
   },
   "jest": {
     "preset": "react-native"
