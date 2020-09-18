@@ -55,17 +55,7 @@ const TabbarNavigation = () => {
           ),
         }}
       />
-      <Tab.Screen
-        name="详情"
-        component={DetailScreen}
-        options={{
-          tabBarLabel: '详情',
-          tabBarIcon: ({color, size}) => (
-            <EvilIcons name={'navicon'} size={size + 10} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
+       <Tab.Screen
         name="活动"
         component={ActiveScreen}
         options={{
@@ -75,6 +65,17 @@ const TabbarNavigation = () => {
           ),
         }}
       />
+      <Tab.Screen
+        name="聊吧"
+        component={DetailScreen}
+        options={{
+          tabBarLabel: '聊吧',
+          tabBarIcon: ({color, size}) => (
+            <Entypo name={'chat'} size={size + 5} color={color} />
+          ),
+        }}
+      />
+     
       <Tab.Screen
         name="购物车"
         component={CarScreen}

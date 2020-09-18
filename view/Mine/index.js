@@ -1,41 +1,29 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {ListItem, Header} from 'react-native-elements';
-import dataSource from './listData';
+import {dataSource} from './listData';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import styles from './indexStyle.js';
 import {useNavigation} from '@react-navigation/native';
 const MineScreen = ({route}) => {
   const navigation = useNavigation();
   const handleMineCenter = () => {
-    return dataSource.map((item, index) => {
+    return (dataSource || []).map((item, index) => {
       return (
         <TouchableOpacity
           onPress={() => handleLogin({...item, index: index})}
           key={index}>
           <View>
-            <ListItem
-              leftAvatar={
-                <Image style={styles.left_image} source={item.icon}></Image>
+            <ListItem key={index} bottomDivider>
+              {
+                item.icon
               }
-              rightAvatar={null}
-              rightTitle={
-                <View style={styles.rightTitle}>
-                  <Text>{item.num}</Text>
-                  <Text>{item.unit}</Text>
-                </View>
-              }
-              title={null}
-              subtitle={item.content}
-              bottomDivider
-            />
+              <ListItem.Content>
+                <ListItem.Subtitle>{item.content}</ListItem.Subtitle>
+              </ListItem.Content>
+              <SimpleLineIcons name="arrow-right" size={15} color={'#707070'}></SimpleLineIcons>
+            </ListItem>
           </View>
         </TouchableOpacity>
       );
@@ -43,7 +31,7 @@ const MineScreen = ({route}) => {
   };
   const handleLogin = (props) => {
     console.log(props);
-    navigation.navigate('LoginAndRegister')
+    navigation.navigate('LoginAndRegister');
   };
   return (
     <View>
@@ -52,32 +40,27 @@ const MineScreen = ({route}) => {
           text: route.name,
           style: {color: '#fff', fontSize: 20},
         }}></Header>
-      <ScrollView showsVerticalScrollIndicator={false}>
+    
         <View style={styles.mine_container}>
           <TouchableOpacity onPress={() => handleLogin()}>
             <View style={styles.header}>
-              <ListItem
-                leftAvatar={
-                  <View style={styles.header_left_image}>
-                    <SimpleLineIcons
-                      name="user"
-                      color="white"
-                      size={30}></SimpleLineIcons>
-                  </View>
-                }
-                rightAvatar={
+              <ListItem>
+                <View style={styles.header_left_image}>
                   <SimpleLineIcons
-                    name="arrow-right"
-                    size={22}></SimpleLineIcons>
-                }
-                title={'登录/注册'}
-                subtitle={<Text>添加职位@添加公司</Text>}
-              />
+                    name="user"
+                    color="white"
+                    size={30}></SimpleLineIcons>
+                </View>
+                <ListItem.Content>
+                  <ListItem.Title>登录/注册</ListItem.Title>
+                  <ListItem.Subtitle>添加职位@添加公司</ListItem.Subtitle>
+                </ListItem.Content>
+                <SimpleLineIcons name="arrow-right" size={15} color={"#707070"}></SimpleLineIcons>
+              </ListItem>
             </View>
           </TouchableOpacity>
           <View style={styles.mine_center}>{handleMineCenter()}</View>
         </View>
-      </ScrollView>
     </View>
   );
 };

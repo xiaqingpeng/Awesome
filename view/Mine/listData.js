@@ -1,69 +1,31 @@
-export default dataSource = [
-    {
-      icon:require('../../images/mine/sound.png'),
-      content: '信息中心',
-      num: '',
-      unit: '',
-      time:'2020-01-14'
-    },
-    {
-      icon:require('../../images/mine/admire.png'),
-      content: '我赞过的',
-      num: 5,
-      unit: '个',
-      time:'2020-01-13'
-    },
-    {
-      icon:require('../../images/mine/star.png'),
-      content: '收藏籍',
-      num: 1,
-      unit: '个',
-      time:'2020-01-12'
-    },
-    {
-      icon:require('../../images/mine/shop.png'),
-      content: '已购小册',
-      num: 2,
-      unit: '本',
-      time:'2020-01-11'
-    },
-    {
-      icon:require('../../images/mine/bill.png'),
-      content: '我的账单',
-      num: '',
-      unit: '',
-      time:'2020-01-11'
-    },
-    {
-      icon:require('../../images/mine/read.png'),
-      content: '阅读过的文章',
-      num: 1,
-      unit: '篇',
-      time:'2020-01-14'
-    },
-    {
-      icon:require('../../images/mine/mark.png'),
-      content: '标签管理',
-      num: 5,
-      unit: '个',
-      time:'2020-01-13'
-    },
-    {
-      icon:require('../../images/mine/quest.png'),
-      content: '意见反馈',
-      num: '',
-      unit: '',
-      time:'2020-01-12'
-    },
-    {
-      icon:require('../../images/mine/set.png'),
-      content: '设置',
-      num: '',
-      unit: '',
-      time:'2020-01-11'
-    },
-    
-   
-  
-   
-  ];
+import React from 'react';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import Feather from 'react-native-vector-icons/Feather';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+
+export const dataSource = [
+  {
+    icon: <AntDesign name="filetext1" size={30} color={'#707070'}></AntDesign>,
+    content: '服务申请',
+  },
+  {
+    icon: <SimpleLineIcons name="location-pin" size={30} color={'#707070'}></SimpleLineIcons>,
+    content: '认证信息',
+  },
+  {
+    icon: <SimpleLineIcons name="cloud-upload" size={30} color={'#707070'}></SimpleLineIcons>,
+    content: '我的发布',
+  },
+  {
+    icon: <AntDesign name="hearto" size={30} color={'#707070'}></AntDesign>,
+    content: '我的收藏',
+  },
+  {
+    icon: <Feather name="bookmark" size={30} color={'#707070'}></Feather>,
+    content: '我的报名',
+  },
+  {
+    icon: <AntDesign name="setting" size={30} color={'#707070'}></AntDesign>,
+    content: '设置',
+  },
+];

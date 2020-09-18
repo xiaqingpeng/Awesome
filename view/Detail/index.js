@@ -1,20 +1,30 @@
 import React ,{Fragment}from 'react';
-import {View, StyleSheet, Dimensions, StatusBar,Platform} from 'react-native';
+import {View,Text, StyleSheet, Dimensions, StatusBar,Platform} from 'react-native';
 import {TabView, SceneMap,TabBar} from 'react-native-tab-view';
-
+import ActionButton from 'react-native-action-button';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 const FirstRoute = () => (
-  <View style={[styles.scene, {backgroundColor: '#ff4081'}]} />
+  <View style={[styles.scene, {flex:1,justifyContent:"center",alignItems:'center'}]} >
+     <Text>全部帖子</Text>
+  </View>
 );
 
 const SecondRoute = () => (
-  <View style={[styles.scene, {backgroundColor: '#673ab7'}]} />
+  <View style={[styles.scene, {flex:1,justifyContent:"center",alignItems:'center'}]} >
+     <Text>话题</Text>
+  </View>
 );
 const ThirdRoute = () => (
-  <View style={[styles.scene, {backgroundColor: 'cyan'}]} />
+  <View style={[styles.scene, {flex:1,justifyContent:"center",alignItems:'center'}]} >
+     <Text>活动</Text>
+  </View>
 );
 
 const FourthRoute = () => (
-  <View style={[styles.scene, {backgroundColor: 'orange'}]} />
+  <View style={[styles.scene, {flex:1,justifyContent:"center",alignItems:'center'}]} >
+  <Text>投票</Text>
+</View>
+
 );
 
 const initialLayout = {width: Dimensions.get('window').width};
@@ -22,10 +32,10 @@ const initialLayout = {width: Dimensions.get('window').width};
 const TabViewExample = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    {key: 'first', title: '人工智能'},
-    {key: 'second', title: '云计算'},
-    {key: 'third', title: '大数据'},
-    {key: 'fourth', title: '物联网'},
+    {key: 'first', title: '全部帖子'},
+    {key: 'second', title: '话题'},
+    {key: 'third', title: '活动'},
+    {key: 'fourth', title: '投票'},
   ]);
 
   const renderScene = SceneMap({
@@ -53,6 +63,15 @@ const TabViewExample = () => {
       style={styles.container}
       renderTabBar={renderTabBar}
     />
+    <ActionButton
+          buttonColor="rgb(3,127,254)"
+          // offsetY={190}
+          onPress={() => {
+            console.log('分享');
+          }}
+          renderIcon={() => (
+            <MaterialCommunityIcons name="feather" color="white" size={28}></MaterialCommunityIcons>
+          )}></ActionButton>
     </Fragment>
   );
 };
