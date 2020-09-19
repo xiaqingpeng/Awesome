@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 function AdviceScreen({route}) {
-  console.log(route)
+ 
   
   const navigation = useNavigation();
   const dispatch = useDispatch();

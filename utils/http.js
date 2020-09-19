@@ -1,5 +1,4 @@
 import axios from 'axios';
-console.log(process.env);
 // 创建 axios 实例
 const instance = axios.create({
     baseURL: process.env.NODE_ENV === 'production' ?     

@@ -46,7 +46,6 @@ class DrawerHeader extends React.Component {
         justifyContent:'center'
       }}
         renderItem={(data) => {
-          console.log(data);
           return (
             <View style={styles.container}>
                {data.icon}

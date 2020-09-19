@@ -59,7 +59,7 @@ const dataSource = [
 
           }}
           renderItem={(data,index) => {
-            console.log(data);
+           
             return (
               
               <View style={styles.container_header}>

@@ -46,7 +46,7 @@ class DrawerHeader extends React.Component {
         justifyContent:'center'
       }}
         renderItem={(data,index) => {
-          console.log(data);
+       
           return (
             <TouchableOpacity onPress={()=>{
               if (index===2) this.props.drawer()
