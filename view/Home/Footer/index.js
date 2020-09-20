@@ -1,19 +1,13 @@
-import React, {Fragment} from 'react';
-import {View, Text,TouchableOpacity} from 'react-native';
-import styles from './indexStyle';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import React from 'react';
+import {View, Text} from 'react-native';
+import {Ionicons, FontAwesome, AntDesign} from '../../../common/tool';
 import {Grid} from '@ant-design/react-native';
+import styles from './indexStyle';
 
 const dataSource = [
   {
     icon: (
-      <AntDesign
-        name="setting"
-        size={30}
-        color={'rgba(0,0,0,0.9)'}></AntDesign>
+      <AntDesign name="setting" size={30} color={'rgba(0,0,0,0.9)'}></AntDesign>
     ),
     text: '设置',
   },
@@ -28,7 +22,10 @@ const dataSource = [
   },
   {
     icon: (
-      <FontAwesome name="power-off" size={27} color={'rgba(0,0,0,0.9)'}></FontAwesome>
+      <FontAwesome
+        name="power-off"
+        size={27}
+        color={'rgba(0,0,0,0.9)'}></FontAwesome>
     ),
     text: '关闭',
   },
@@ -40,22 +37,18 @@ class DrawerHeader extends React.Component {
         data={dataSource}
         columnNum={3}
         hasLine={false}
-        itemStyle={{backgroundColor:'white',height:50,
-        opacity:0.6,
-        alignItems:'center',
-        justifyContent:'center'
-      }}
-        renderItem={(data,index) => {
-       
+        itemStyle={styles.itemStyle}
+        onPress={(data, index) => {
+          if (index === 2) this.props.drawer();
+        }}
+        renderItem={(data, index) => {
           return (
-            <TouchableOpacity onPress={()=>{
-              if (index===2) this.props.drawer()
-            }}>
             <View style={styles.container}>
-               {data.icon}
-              <Text style={{marginLeft:3,fontWeight:"bold"}}>{data.text}</Text>
+              {data.icon}
+              <Text style={{marginLeft: 3, fontWeight: 'bold'}}>
+                {data.text}
+              </Text>
             </View>
-            </TouchableOpacity>
           );
         }}
       />

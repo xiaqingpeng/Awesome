@@ -1,7 +1,6 @@
 
 import React from 'react'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Foundation from 'react-native-vector-icons/Foundation';
+import { MaterialCommunityIcons,Foundation} from '../../common/tool'
 export  const array = [
     {
       title: '话题',

@@ -1,27 +1,8 @@
-// import  React from 'react';
-// import { Text, View } from 'react-native';
-// import QRCode from 'react-native-qrcode-svg';
-// function CarScreen() {
-//   let base64Logo = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAA..';
-//     return (
-//       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//            <QRCode
-//       value="https://www.baidu.com/"
-//       logo={{uri: base64Logo}}
-//       logoSize={30}
-//       logoBorderRadius={10}
-//       logoBackgroundColor='transparent'
-      
-//     />
-//       </View>
-//     );
-//   }
-
-//   export default  CarScreen
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import {LocaleConfig, Calendar} from 'react-native-calendars';
+import {  ScreenWidth} from '../../common/tool'
 
 
 // 日历组件 中文替换
@@ -50,8 +31,9 @@ export default class App extends Component{
      
       
 
-        <View>
-            <Calendar
+      
+            <Calendar 
+                style={{width:ScreenWidth*0.8}}
                 monthFormat = { ' yyyy MM ' }
                 markedDates={{
                     '2019-03-10': {selected: true, selectedColor: '#FFC1B5'},
@@ -62,7 +44,7 @@ export default class App extends Component{
                 markingType={'multi-dot'}
 
             />
-        </View>
+      
       </View>
     );
   }
@@ -71,13 +53,8 @@ export default class App extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
   }
 });

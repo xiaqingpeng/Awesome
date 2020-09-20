@@ -1,7 +1,8 @@
 import React from 'react';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import Feather from 'react-native-vector-icons/Feather';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+// import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+// import Feather from 'react-native-vector-icons/Feather';
+// import AntDesign from 'react-native-vector-icons/AntDesign';
+import {SimpleLineIcons, Feather, AntDesign} from '../../common/tool.js'
 
 export const dataSource = [
   {

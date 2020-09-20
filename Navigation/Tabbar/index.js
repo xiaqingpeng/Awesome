@@ -6,13 +6,8 @@ import DetailScreen from '../../view/Detail';
 import ActiveScreen from '../../view/Active';
 import CarScreen from '../../view/Car';
 import MineScreen from '../../view/Mine';
-
 //引用iconfont
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Entypo from 'react-native-vector-icons/Entypo';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
-
+import { FontAwesome,AntDesign,Entypo} from '../../common/tool'
 const Tab = createBottomTabNavigator();
 const TabbarNavigation = () => {
   //底部公共样式

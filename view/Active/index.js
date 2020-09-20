@@ -1,18 +1,42 @@
-import React, {Fragment, useEffect} from 'react';
-import {Text, View, Button, TouchableOpacity, StyleSheet} from 'react-native';
+import React, {Fragment, useEffect, useState} from 'react';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+  RefreshControl,
+} from 'react-native';
 import {Header} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import {useDispatch, useSelector} from 'react-redux';
-import ActionButton from 'react-native-action-button';
-import Icon from 'react-native-vector-icons/Ionicons';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import * as Animatable from 'react-native-animatable';
+import {ScreenWidth} from '../.../../../common/tool';
 
 function ActiveScreen({route}) {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  let   _ref=null
+  //state数据
+
+  const [text, setText] = useState('初始状态');
+  const [refreshing, setRefreshing] = useState(false);
+  //下拉视图开始刷新时调用
+  const _onRefresh = () => {
+    if (refreshing === false) {
+      _updateState('正在刷新......', true);
+
+      //5秒后结束刷新
+      setTimeout(() => {
+        _updateState('结束状态', false);
+      }, 5000);
+    }
+  };
+
+  //更新State
+  const _updateState = (message, refresh) => {
+    setRefreshing(refresh);
+    setText(message);
+  };
   return (
     <Fragment>
       <View style={{flex: 1, alignItems: 'center'}}>
@@ -21,41 +45,39 @@ function ActiveScreen({route}) {
             text: route.name,
             style: {color: '#fff', fontSize: 20},
           }}></Header>
-        <ActionButton
-          buttonColor="rgba(3,127,254,1)"
-          onPress={() => {
-            console.log('点赞');
-            console.log(_ref)
-            _ref.bounceOutDown()
+        <ScrollView
+          style={[styles.bgColor]}
+          contentContainerStyle={{
+            flex: 1,
+            width: ScreenWidth,
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
-          renderIcon={() => (
-            <Animatable.Text 
-            
-            ref={(ref)=>{
-               _ref=ref
-            }}>
-                <AntDesign name="like2" color="white" size={30}></AntDesign>
-              </Animatable.Text>
-           
-          )}></ActionButton>
-        <ActionButton
-          buttonColor="red"
-          offsetY={110}
-          onPress={() => {
-            console.log('收藏');
-          }}></ActionButton>
-        <ActionButton
-          buttonColor="purple"
-          offsetY={190}
-          onPress={() => {
-            console.log('分享');
-          }}
-          renderIcon={() => (
-            <AntDesign name="sharealt" color="white" size={25}></AntDesign>
-          )}></ActionButton>
+          indicatorStyle={'black'}
+          showsHorizontalScrollIndicator={true}
+          bounces={true}
+          refreshControl={
+            <RefreshControl
+              tintColor={'rgb(3,127,255)'}
+              titleColor={'brown'}
+              title={'正在刷新......'}
+              refreshing={refreshing}
+              onRefresh={() => _onRefresh()}
+            />
+          }>
+          <Text>{text}</Text>
+        </ScrollView>
       </View>
     </Fragment>
   );
 }
-const styles = StyleSheet.create({});
+
+const styles = StyleSheet.create({
+  flex: {
+    flex: 1,
+  },
+  bgColor: {
+    backgroundColor: '#EEE',
+  },
+});
 export default ActiveScreen;
