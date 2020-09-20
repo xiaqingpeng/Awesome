@@ -66,6 +66,10 @@ function ActiveScreen({route}) {
             />
           }>
           <Text>{text}</Text>
+         
+           
+      
+         
         </ScrollView>
       </View>
     </Fragment>
