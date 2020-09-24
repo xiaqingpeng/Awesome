@@ -2,8 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import {Button, Input} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
-import {ScreenWidth} from '../../../common/tool';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import {SimpleLineIcons,FontAwesome,ScreenWidth} from '../../../common/tool'
 function RegisterScreen() {
   const navigation = useNavigation();
   return (
@@ -16,7 +15,7 @@ function RegisterScreen() {
       }}>
       <Input
         containerStyle={{width: ScreenWidth * 0.8}}
-        placeholder="请输入手机号码"
+        placeholder="请输入用户名/手机号码"
         maxLength={11}
         onChangeText={(e)=>{
           setTel(e)
@@ -28,7 +27,7 @@ function RegisterScreen() {
           paddingLeft: 10,
           paddingRight: 10,
         }}
-        leftIcon={<SimpleLineIcons name="user" size={20} color="black" />}
+        leftIcon={<FontAwesome name="mobile-phone" size={32} color="black" />}
       />
       <Input
         containerStyle={{width: ScreenWidth * 0.8}}
@@ -43,6 +42,8 @@ function RegisterScreen() {
           paddingRight: 10,
           
         }}
+        secureTextEntry={true}
+        autoCapitalize={'none'}
         placeholder="请输入密码"
         leftIcon={<SimpleLineIcons name="lock" size={24} color="black" />}
       />
