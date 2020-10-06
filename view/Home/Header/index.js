@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment,useContext} from 'react';
 import {View, Text} from 'react-native';
 
 import {Grid} from '@ant-design/react-native';
@@ -9,38 +9,39 @@ import {
   AntDesign,
   FontAwesome5,
 } from '../../../common/tool';
+import { ThemeContext} from '../../../common/context'
 import styles from './indexStyle';
 const dataSource = [
   {
-    icon: (
+    icon:(backgroundColor)=> (
       <Ionicons
         name="scan-outline"
         size={30}
-        color={'rgb(3,127,254)'}></Ionicons>
+        color={backgroundColor}></Ionicons>
     ),
     text: '扫一扫',
   },
   {
-    icon: (
+    icon:(backgroundColor)=> (
       <FontAwesome
         name="qrcode"
         size={30}
-        color={'rgb(3,127,254)'}></FontAwesome>
+        color={backgroundColor}></FontAwesome>
     ),
     text: '我的二维码',
   },
   {
-    icon: (
-      <AntDesign name="user" size={30} color={'rgb(3,127,254)'}></AntDesign>
+    icon:(backgroundColor)=> (
+      <AntDesign name="user" size={30} color={backgroundColor}></AntDesign>
     ),
     text: '我的好友',
   },
   {
-    icon: (
+    icon:(backgroundColor)=> (
       <FontAwesome5
         name="car"
         size={30}
-        color={'rgb(3,127,254)'}></FontAwesome5>
+        color={backgroundColor}></FontAwesome5>
     ),
     text: '驾驶模式',
   },
@@ -48,6 +49,7 @@ const dataSource = [
 
 const DrawerHeader = () => {
   const navigation = useNavigation();
+  const [backgroundColor, setBackgroundColor] = useContext(ThemeContext)
   return (
     <Fragment>
       <Grid
@@ -74,7 +76,7 @@ const DrawerHeader = () => {
                   backgroundColor: 'white',
                   borderRadius: 20,
                 }}>
-                {data.icon}
+                {data.icon(backgroundColor)}
               </View>
 
               <Text style={{fontWeight: 'bold', fontSize: 12}}>
@@ -90,14 +92,14 @@ const DrawerHeader = () => {
           <FontAwesome
             name="microphone"
             size={30}
-            color={'rgba(0,0,0,0.8)'}></FontAwesome>
+            color={backgroundColor}></FontAwesome>
           <Text style={styles.music_tool_text}>听歌识曲</Text>
         </View>
         <View style={styles.music_tool_view}>
           <AntDesign
             name="tool"
             size={30}
-            color={'rgba(0,0,0,0.8)'}></AntDesign>
+            color={backgroundColor}></AntDesign>
           <Text style={styles.music_tool_text}>音乐工具</Text>
         </View>
       </View>

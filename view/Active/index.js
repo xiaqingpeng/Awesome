@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import React, {Fragment, useEffect, useState,useContext} from 'react';
 import {
   Text,
   View,
@@ -12,8 +12,9 @@ import {useNavigation} from '@react-navigation/native';
 
 import {useDispatch, useSelector} from 'react-redux';
 import {ScreenWidth} from '../.../../../common/tool';
-
+import { ThemeContext } from '../../common/context'
 function ActiveScreen({route}) {
+  const [backgroundColor, setBackgroundColor] = useContext(ThemeContext)
   const navigation = useNavigation();
   const dispatch = useDispatch();
   //state数据
@@ -40,7 +41,8 @@ function ActiveScreen({route}) {
   return (
     <Fragment>
       <View style={{flex: 1, alignItems: 'center'}}>
-        <Header
+        <Header 
+          containerStyle={{backgroundColor}}
           centerComponent={{
             text: route.name,
             style: {color: '#fff', fontSize: 20},

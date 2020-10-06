@@ -27,10 +27,11 @@ const styles = StyleSheet.create({
     borderWidth: 1 
   },
   register_title:{
-    fontSize:25
+    fontSize:20,
+    lineHeight:25
   },
   login_title:{
-    fontSize: 25,color:"white"
+    fontSize: 20,color:"white"
   }
 });
 export default styles;

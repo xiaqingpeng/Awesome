@@ -18,7 +18,7 @@ const enable = enableScreens();
 const store = configureStore();
 const Stack = createStackNavigator();
 
-
+import { ColorComponent,ThemeProvider} from './common/context'
 const RootStack = () => (
   <Stack.Navigator headerMode='none'>
      <Stack.Screen
@@ -87,8 +87,11 @@ function App() {
 export default () => {
   LogBox.ignoreAllLogs();
   return (
-    <Provider store={store}>
+    <ThemeProvider >
+        <Provider store={store}>
       <App />
     </Provider>
+    </ThemeProvider>
+   
   );
 };

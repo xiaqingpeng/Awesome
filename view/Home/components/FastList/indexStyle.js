@@ -37,8 +37,9 @@ const styles = StyleSheet.create({
   },
   container_text: {
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: 12,
     textAlign: 'center',
+    color:'#2f2f2f',
     marginTop: 5,
   },
   itemStyle: {
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
   },
   container_text_array: {
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 14,
     textAlign: 'center',
     marginRight:20,
 

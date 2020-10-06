@@ -1,18 +1,18 @@
-import React from 'react';
+import React ,{useContext}from 'react';
 import {View, Text} from 'react-native';
 import {Ionicons, FontAwesome, AntDesign} from '../../../common/tool';
 import {Grid} from '@ant-design/react-native';
 import styles from './indexStyle';
-
+import { ThemeContext} from '../../../common/context'
 const dataSource = [
   {
-    icon: (
+    icon:(backgroundColor)=> (
       <AntDesign name="setting" size={30} color={'rgba(0,0,0,0.9)'}></AntDesign>
     ),
     text: '设置',
   },
   {
-    icon: (
+    icon:(backgroundColor)=> (
       <Ionicons
         name="exit-outline"
         size={30}
@@ -21,7 +21,7 @@ const dataSource = [
     text: '退出登录',
   },
   {
-    icon: (
+    icon:(backgroundColor)=> (
       <FontAwesome
         name="power-off"
         size={27}
@@ -30,8 +30,8 @@ const dataSource = [
     text: '关闭',
   },
 ];
-class DrawerHeader extends React.Component {
-  render() {
+const  DrawerHeader=(props)=> {
+  const [backgroundColor, setBackgroundColor] = useContext(ThemeContext)
     return (
       <Grid
         data={dataSource}
@@ -39,12 +39,12 @@ class DrawerHeader extends React.Component {
         hasLine={false}
         itemStyle={styles.itemStyle}
         onPress={(data, index) => {
-          if (index === 2) this.props.drawer();
+          if (index === 2) props.drawer();
         }}
         renderItem={(data, index) => {
           return (
             <View style={styles.container}>
-              {data.icon}
+              {data.icon(backgroundColor)}
               <Text style={{marginLeft: 3, fontWeight: 'bold'}}>
                 {data.text}
               </Text>
@@ -52,8 +52,7 @@ class DrawerHeader extends React.Component {
           );
         }}
       />
-    );
-  }
+    )
 }
 
 export default DrawerHeader;

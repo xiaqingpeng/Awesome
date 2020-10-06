@@ -1,12 +1,14 @@
-import React, {Fragment} from 'react';
+import React, {Fragment,useContext} from 'react';
 import {View, Text } from 'react-native';
 import styles from './indexStyle';
 import {Grid} from '@ant-design/react-native';
 import {useNavigation} from '@react-navigation/native';
 import {dataSource, array} from './listData';
 import { ScreenWidth } from '../../../../common/tool'
+import { ThemeContext} from '../../../../common/context'
 const DrawerHeader = () => {
   const navigation = useNavigation();
+  const [backgroundColor, setBackgroundColor] = useContext(ThemeContext)
   return (
     <Fragment>
       <Grid
@@ -20,7 +22,7 @@ const DrawerHeader = () => {
         renderItem={(data) => {
           return (
             <View style={styles.container_header}>
-              <View style={styles.container_circle}>{data.icon}</View>
+              <View style={styles.container_circle}>{data.icon(backgroundColor)}</View>
               <Text style={styles.container_text}>{data.text}</Text>
             </View>
           );
@@ -30,7 +32,7 @@ const DrawerHeader = () => {
        
         width:ScreenWidth,
         justifyContent:'flex-start'}}>
-         <Text style={{fontSize:20,fontWeight:'700'}}>
+         <Text style={{fontSize:16,fontWeight:'700'}}>
            为您推荐
          </Text>
       </View>
@@ -47,7 +49,7 @@ const DrawerHeader = () => {
             <View style={styles.container_header_array}>
             
               <Text style={styles.container_text_array}>{data.text}</Text>
-              <View style={styles.container_circle_array}>{data.icon}</View>
+              <View style={styles.container_circle_array}>{data.icon(backgroundColor)}</View>
             </View>
           );
         }}

@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState,useContext} from 'react';
 import {View, Text, Dimensions, Pressable} from 'react-native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import ActionButton from 'react-native-action-button';
@@ -6,6 +6,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {Popover} from '@ant-design/react-native';
 import styles from './indexStyle';
 import {array} from './listData';
+import { ThemeContext } from '../../common/context'
 const FirstRoute = () => (
   <View
     style={[
@@ -46,8 +47,9 @@ const FourthRoute = () => (
 const initialLayout = {width: Dimensions.get('window').width};
 const TabViewExample = () => {
   const [index, setIndex] = React.useState(0);
+  const [backgroundColor, setBackgroundColor] = useContext(ThemeContext)
   const [routes] = React.useState([
-    {key: 'first', title: '全部帖子'},
+    {key: 'first', title: '帖子'},
     {key: 'second', title: '话题'},
     {key: 'third', title: '活动'},
     {key: 'fourth', title: '投票'},
@@ -61,9 +63,12 @@ const TabViewExample = () => {
   const renderTabBar = (props) => (
     <TabBar
       {...props}
-      indicatorStyle={{backgroundColor: 'rgb(3,127,254)'}}
+      indicatorStyle={{backgroundColor}}
       style={{backgroundColor: 'white'}}
-      activeColor="rgb(3,127,254)"
+      activeColor={backgroundColor}
+      scrollEnabled={true}
+      // labelStyle={{fontSize:12}}
+     
       inactiveColor="rgb(0,0,0)"
     />
   );
@@ -79,7 +84,7 @@ const TabViewExample = () => {
         renderTabBar={renderTabBar}
       />
       <ActionButton
-        buttonColor="rgb(3,127,254)"
+        buttonColor={backgroundColor}
         onPress={() => {
           console.log('分享');
         }}

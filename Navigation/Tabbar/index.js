@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Platform} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../../view/Home';
@@ -7,12 +7,14 @@ import ActiveScreen from '../../view/Active';
 import CarScreen from '../../view/Car';
 import MineScreen from '../../view/Mine';
 //引用iconfont
-import { FontAwesome,AntDesign,Entypo} from '../../common/tool'
+import {FontAwesome, AntDesign, Entypo} from '../../common/tool';
+import {ThemeConsumer, ThemeContext} from '../../common/context';
 const Tab = createBottomTabNavigator();
 const TabbarNavigation = () => {
+  const [backgroundColor, setBackgroundColor] = useContext(ThemeContext)
   //底部公共样式
   const tabBarOptions = {
-    activeTintColor: 'rgb(3,127,254)',
+    activeTintColor: backgroundColor,
     inactiveTintColor: '#7b7b7b',
     style: {
       backgroundColor: 'white',
@@ -27,19 +29,21 @@ const TabbarNavigation = () => {
       //   paddingTop:2,
     },
     labelStyle: {
-      fontSize: 18,
+      fontSize: 12,
     },
   };
+
   return (
     <Tab.Navigator
       tabBarOptions={tabBarOptions}
       initialRouteName="Home"
-      tabBarOptions={({navigation}) => {
-        console.log(navigation);
-        return {
-          tabBarVisible: navigation.state.index === 0,
-        };
-      }}>
+      // tabBarOptions={({navigation}) => {
+      //   console.log(navigation);
+      //   return {
+      //     tabBarVisible: navigation.state.index === 0,
+      //   };
+      // }}
+      >
       <Tab.Screen
         name="首页"
         component={HomeScreen}
@@ -50,13 +54,13 @@ const TabbarNavigation = () => {
           ),
         }}
       />
-       <Tab.Screen
+      <Tab.Screen
         name="活动"
         component={ActiveScreen}
         options={{
           tabBarLabel: '活动',
           tabBarIcon: ({color, size}) => (
-            <FontAwesome name={'paper-plane-o'} size={size} color={color} />
+            <FontAwesome name={'paper-plane-o'} size={size-2} color={color} />
           ),
         }}
       />
@@ -66,11 +70,11 @@ const TabbarNavigation = () => {
         options={{
           tabBarLabel: '聊吧',
           tabBarIcon: ({color, size}) => (
-            <Entypo name={'chat'} size={size + 5} color={color} />
+            <Entypo name={'chat'} size={size + 3} color={color} />
           ),
         }}
       />
-     
+
       <Tab.Screen
         name="购物车"
         component={CarScreen}
@@ -89,7 +93,7 @@ const TabbarNavigation = () => {
         options={{
           tabBarLabel: '我的',
           tabBarIcon: ({color, size}) => (
-            <Entypo name={'user'} size={size} color={color} />
+            <Entypo name={'user'} size={size-2} color={color} />
           ),
         }}
       />
