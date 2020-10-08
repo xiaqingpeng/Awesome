@@ -149,6 +149,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		56266D34B9C54EDA87C596E1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,17 +202,8 @@
 				528B7512EFD36357BBE01DC3 /* Pods-Awesome-tvOSTests.debug.xcconfig */,
 				11942CF40EA9C039856361E9 /* Pods-Awesome-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		56266D34B9C54EDA87C596E1 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
