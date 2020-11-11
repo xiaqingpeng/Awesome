@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import {LocaleConfig, Calendar} from 'react-native-calendars';
 import {  ScreenWidth} from '../../common/tool'
-import Spinner from 'react-native-spinkit';
+// import Spinner from 'react-native-spinkit';
 
 // 日历组件 中文替换
 LocaleConfig.locales['fr'] = {
@@ -44,13 +44,13 @@ export default class App extends Component{
                 markingType={'multi-dot'}
 
             />
-             <Spinner
+             {/* <Spinner
               style={styles.spinner}
               isVisible={true}
               size={50}
               type={'ThreeBounce'}
               color={'#707070'}
-            />
+            /> */}
       </View>
     );
   }
